@@ -63,7 +63,7 @@ usar" em `REFERENCIAS.md`.
   regra-vs-skill.
 - **Red team como formato de aula inteira** — a grade antiga descrevia esta semana como
   red team. Resolução (já dada pela Iasmim, ver `_BRIEF.md` "Uma inconsistência na spec
-  que eu já resolvi"): aula 2 é lab guiado paralelo; a validação cruzada (que é o
+  que eu já resolvi"): aula 2 é red team em duplas (mudado no brief de 21/09; antes era lab guiado paralelo); a validação cruzada (que é o
   núcleo do red team) acontece só no último checkpoint da aula 6, e se completa no
   entregável assíncrono. Motivo pedagógico respeitado: ninguém quebra uma skill antes
   de ter escrito uma.
@@ -155,7 +155,7 @@ Dois pontos, um por aula — nomeados explicitamente no roteiro, não implícito
 ## 8. Por que esta semana não usa Excalidraw
 
 `_GANCHOS.md` e `_BRIEF.md` mapeiam Excalidraw coletivo pras semanas 5 e 6. A semana 3
-usa lab guiado paralelo (ver seção "Uma inconsistência na spec que eu já resolvi" do
+usa red team em duplas desde o brief de 21/09 (ver seção "Uma inconsistência na spec que eu já resolvi" do
 `_BRIEF.md`). Não há zona de diagrama coletivo a preencher ao vivo nesta semana — os
 diagramas que aparecem (hierarquia de CLAUDE.md, ponte AGENTS.md↔CLAUDE.md, analogia do
 manual) são artefatos de slide, prontos, não quadros que a turma desenha junto. Por

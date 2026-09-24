@@ -9,80 +9,75 @@
 | **Formulário de entrega** | https://forms.gle/PSd6i65g44GwBMgq6 |
 | **Prazo de entrega** | Antes da aula 1 da semana 4 |
 
-O trabalho de verdade acontece no repositório do **seu projeto próprio** (o da semana
-2). Aqui, dentro do seu fork do curso, você entrega os artefatos e as evidências:
-copie o `CLAUDE.md`, a pasta da skill e o relatório de validação pra dentro de
-`aula5-agents-md-skills/entrega/` e cole o link do repositório do projeto na entrega.
-
-Duas faixas, como sempre: a **mínima** você fecha ainda no dia da aula 6. A **completa**
-é a que prova progressive disclosure de verdade e fecha a validação cruzada.
+O que você entrega no formulário é o **link do repositório do seu projeto próprio no
+GitHub**, com a skill já commitada (e, na faixa completa, publicada — ver passo 4 do
+passo a passo).
 
 ---
 
 ## O que você vai entregar
 
 **Mínima:**
-1. Uma regra nova no `CLAUDE.md` do seu projeto, nascida de um erro real observado —
-   com a prova do teste antes/depois (o que o agente fez sem a regra, o que fez com ela).
-2. Uma skill própria (`SKILL.md` com `name`, `description` e `allowed-tools`
-   preenchidos, nada de `TODO`).
-3. O parágrafo pro dono do negócio (ver modelo abaixo).
+1. Uma skill própria (`SKILL.md` com `name`, `description` e `allowed-tools`
+   preenchidos, nada de `TODO`), invocável.
 
 **Completa (tudo da mínima +):**
-4. A mesma skill com progressive disclosure de verdade: um `reference.md` (ou mais de
-   um arquivo) separado do `SKILL.md`, e a prova em número — `/context` antes e depois
-   de invocar a skill, mostrando a diferença.
-5. `RELATORIO-VALIDACAO.md` da skill do **seu colega de dupla**, cobrindo os três
-   cenários (ver `starter/relatorio-validacao/TEMPLATE.md`):
-   - dispara quando deve
-   - não dispara quando não deve
-   - falso positivo (um cenário parecido, mas que não deveria disparar)
+2. A mesma skill com progressive disclosure de verdade: um `reference.md` (ou mais de
+   um arquivo) separado do `SKILL.md`.
+3. A skill **publicada no GitHub**, seguindo a documentação oficial de criação de
+   skills — ver "Como publicar sua skill no GitHub" no passo a passo.
 
 ---
 
-## Por que essa atividade existe
+## Material de apoio (sem Alura)
 
-Ela comprova uma capacidade específica: **decidir o que merece virar regra permanente,
-o que merece virar skill sob demanda, e o que não merece nada — e provar a decisão com
-um teste, não com uma opinião.**
+Turmas sem acesso à Alura: comece por aqui em vez do bloco indicado no `README.md`.
+São leituras em português que cobrem o mesmo terreno — a decisão entre regra
+permanente e skill sob demanda, e como uma skill é estruturada de verdade:
 
-Se essa capacidade estivesse ausente, você teria um `CLAUDE.md` que cresce sem parar
-(porque tudo parece merecer estar lá) ou uma skill que nunca dispara, ou dispara sempre
-(porque a `description` foi escrita sem pensar em gatilho). O teste antes/depois na
-regra e os três cenários na skill do colega são justamente o que separa "eu acho que
-isso ajuda" de "eu testei e mudou o comportamento".
+- [Engenharia de contexto para agentes de IA: 3 arquivos que apresentam sua empresa ao Claude](https://interney.net/engenharia-de-contexto-agentes-ia/) — as técnicas de engenharia de contexto (retrieval just-in-time, compactação, notas estruturadas, subagentes) e por que isso muda como você organiza `AGENTS.md`/`CLAUDE.md`.
+- [AGENTS.md: Context Engineering para Agentes de IA](https://blog.codedimension.com.br/post/agents-md-context-engineering-skills-rules/) — a diferença prática entre `AGENTS.md`, skills e regras.
+- [Agent Skills: o que são e como criar para agentes de IA](https://www.distrito.me/blog/agent-skills-o-que-sao-como-funcionam-como-criar-habilidades-para-agentes-de-ia) — estrutura de uma skill, frontmatter, exemplos de `SKILL.md`.
+- [Extend Claude with skills — documentação oficial](https://code.claude.com/docs/en/skills) — a referência que vale mais: todos os campos do frontmatter (`name`, `description`, `allowed-tools` etc.), progressive disclosure com arquivos de apoio, e como skills são compartilhadas via git. Em inglês, mas é a fonte primária — use como consulta, não como leitura corrida.
 
 ## Pré-requisitos
 
-- Bloco da Alura desta semana concluído (Context Engineering — ver `README.md`).
+- Ter lido pelo menos um material da lista acima (ou o bloco da Alura, se você tiver
+  acesso).
 - `CLAUDE.md` funcional no repositório do seu projeto próprio, sem `TODO`, commitado.
-- Ter feito o Lab 1 e o Lab 2 da aula 5, e os checkpoints da aula 6.
+- Ter feito o Lab 1 e o Lab 2 da aula 5.
+- **Chegar na aula 6 com a skill invocável** — sem ela, o seu par fica sem o que testar.
 
 ## Passo a passo
 
-1. No repositório do seu projeto, confirme a regra e o teste antes/depois do Lab 1
-   (aula 5). Se ainda não fez, faça agora seguindo o `GUIA-DO-ALUNO.md`.
-2. Confirme a skill do Lab 2, com `reference.md` separado e os números de `/context`
-   antes/depois da invocação.
-3. Rode a skill do seu colega de dupla (ou trio, se for o caso — ver pareamento no
-   `GUIA-DO-ALUNO.md`) contra os três cenários do template. Cole comando + resultado
-   bruto pra cada um, não só a conclusão.
-4. Escreva o parágrafo pro dono do negócio.
-5. Copie os artefatos pra `aula5-agents-md-skills/entrega/` no seu fork:
-   ```
-   entrega/
-   |-- CLAUDE-md-diff.md        # a regra nova + o teste antes/depois
-   |-- skill/                   # cópia de .claude/skills/<nome>/ do seu projeto
-   |-- RELATORIO-VALIDACAO.md   # a validação da skill do colega
-   `-- paragrafo-dono-negocio.md
-   ```
-6. Commit, push, cole o link do repositório do seu projeto próprio no formulário.
-
-## O parágrafo para o dono do negócio
-
-Enunciado: em 3 a 5 frases, sem jargão técnico, explique pra alguém que não programa
-por que um agente de IA "com regras próprias" e "habilidades sob demanda" é diferente
-de simplesmente usar um chatbot genérico — e o que isso evita de errado.
+1. Feche o `SKILL.md` da sua skill (Lab 2, aula 5): `name` claro, `description` que
+   nomeia o gatilho específico do seu domínio (não copiada de exemplo), `allowed-tools`
+   restrito ao mínimo necessário — nada de liberar tudo. Nada de `TODO`.
+2. Rode a skill numa tarefa real do seu projeto e confirme que ela dispara sozinha (ou,
+   se `disable-model-invocation: true`, que dispara ao ser chamada por nome). Guarde o
+   comando e o resultado — vale como prova em caso de dúvida.
+3. **(Completa)** Separe o material de referência do `SKILL.md`: crie um `reference.md`
+   (ou mais de um arquivo) na pasta da skill com o conteúdo detalhado, e deixe no
+   `SKILL.md` só o essencial pra decidir se/quando disparar, com um link pro
+   `reference.md`. Se você decidir que **nada** merece sair do `SKILL.md`, tudo bem —
+   mas escreva por quê, isso também é uma decisão válida.
+4. **(Completa) Como publicar sua skill no GitHub:**
+   - Confirme que a pasta da skill está em `.claude/skills/<nome-da-skill>/` dentro do
+     repositório do seu projeto — é o local que a
+     [documentação oficial](https://code.claude.com/docs/en/skills) descreve como
+     "compartilhado com o time via git", porque qualquer pessoa que clonar o repo já
+     recebe a skill.
+   - Adicione um `README.md` curto **dentro da pasta da skill** (ou uma seção no
+     README do projeto) explicando em 2-3 frases o que ela faz e como alguém de fora
+     poderia usá-la: copiar a pasta pra dentro do próprio `.claude/skills/` de outro
+     projeto e reiniciar o Claude Code.
+   - Commite e dê push pro repositório do seu projeto no GitHub. Confira, num
+     navegador anônimo (ou pedindo pra alguém abrir o link), que a pasta
+     `.claude/skills/<nome-da-skill>/` aparece no repositório.
+   - Pra ver como fica uma skill pensada pra ser reaproveitada por outras pessoas,
+     dê uma olhada no [repositório público de skills da Anthropic](https://github.com/anthropics/skills) — não pra copiar conteúdo, só pra ver o padrão de organização.
+5. Cole o link do repositório do seu projeto (com a skill já commitada e, na faixa
+   completa, publicada) no formulário de entrega.
 
 **Exemplo modelo (domínio 1 do catálogo — Listagem de perfis de alunos da PDA):**
 
@@ -98,14 +93,16 @@ de simplesmente usar um chatbot genérico — e o que isso evita de errado.
 
 ## Checklist antes de entregar
 
-- [ ] A regra nova está no `CLAUDE.md` do projeto, não só numa mensagem de chat.
-- [ ] O teste antes/depois mostra uma diferença real de comportamento, não uma opinião.
-- [ ] O `SKILL.md` não tem `TODO`, tem `allowed-tools` restrito (não liberou tudo).
+- [ ] O `SKILL.md` não tem `TODO`, tem `name` e `description` específicos (nomeia o
+      gatilho), `allowed-tools` restrito (não liberou tudo).
+- [ ] A skill dispara pelo menos uma vez de verdade, numa tarefa real do seu projeto —
+      não um teste de brinquedo.
 - [ ] (Completa) Existe `reference.md` separado, ou a decisão de não ter um está
       justificada por escrito.
-- [ ] (Completa) Os três cenários do relatório de validação têm comando + resultado
-      bruto colado, não só "funcionou" / "não funcionou".
-- [ ] O parágrafo pro dono do negócio não usa nenhum termo técnico sem explicar.
+- [ ] (Completa) A pasta `.claude/skills/<nome>/` está commitada e com push feito no
+      GitHub, com o README curto explicando o que a skill faz.
+- [ ] O link colado no formulário é do repositório do **seu projeto**, não do fork do
+      curso.
 
 ---
 
@@ -113,21 +110,21 @@ de simplesmente usar um chatbot genérico — e o que isso evita de errado.
 
 | critério | peso | o que eu olho |
 |---|---|---|
-| Regra testada, não opinada | 25% | nasceu de um erro real e nomeado; tem teste antes/depois com resultado diferente |
-| Skill própria válida | 20% | frontmatter completo, `allowed-tools` restrito, dispara pelo menos uma vez de verdade |
-| Progressive disclosure | 15% | `reference.md` separado com uso real, ou justificativa honesta de por que não precisa |
-| Validação cruzada nos 3 cenários | 25% | dispara quando deve / não dispara quando não deve / falso positivo — cada um com evidência bruta |
-| Parágrafo pro dono do negócio | 15% | sem jargão, nomeia o problema resolvido e o que evita de errado |
+| Skill própria válida | 50% | frontmatter completo, `description` com gatilho específico do domínio, `allowed-tools` restrito, dispara pelo menos uma vez de verdade |
+| Progressive disclosure | 30% | `reference.md` separado com uso real, ou justificativa honesta de por que não precisa |
+| Skill publicada no GitHub | 20% | `.claude/skills/<nome>/` commitada e com push no repositório do projeto, com README curto explicando o que ela faz |
 
-O que **não** pontua: uma regra que soa bem mas não muda nada no comportamento do
-agente; uma skill com `description` copiada de exemplo sem adaptar ao seu domínio;
-"funcionou" sem mostrar o comando que você rodou.
+O que **não** pontua: uma skill com `description` copiada de exemplo sem adaptar ao
+seu domínio; "funciona" sem mostrar o comando que você rodou; `allowed-tools` liberando
+tudo porque "deu preguiça de restringir".
 
 ## Bônus (sem peso na nota, com peso na vida)
 
-- Depois de validar a skill do colega, tente um **quarto cenário** — um jeito de
-  quebrá-la que nenhum dos três padrão cobre. Cole no relatório, mesmo que não tenha
-  quebrado nada.
-- Crie o `AGENTS.md` do seu projeto (o formato aberto) e aponte seu `CLAUDE.md` pra
-  ele com `@AGENTS.md`. Teste se outro agente (Cursor, Codex, o que você tiver à mão)
-  consegue ler o mesmo arquivo sem duplicar regra nenhuma.
+- Se você fez o red team em duplas da aula 6, tente um **quarto cenário** na skill do
+  seu colega — um jeito de quebrá-la que nenhum dos três padrão cobre. Vale a pena
+  registrar, mesmo que não tenha quebrado nada.
+- Crie o `AGENTS.md` do seu projeto (o formato aberto). Se o seu Claude Code é 2.1.277
+  ou mais novo e você **não** tem `CLAUDE.md`, ele já lê o `AGENTS.md` direto. Se tem os
+  dois, aponte o `CLAUDE.md` pra ele com `@AGENTS.md`. Depois teste com outro agente
+  (Cursor, Codex, o que você tiver à mão) e veja se os dois leem a mesma regra sem
+  duplicar arquivo.

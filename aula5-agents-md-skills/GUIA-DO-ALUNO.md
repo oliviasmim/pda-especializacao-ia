@@ -1,6 +1,6 @@
 # Guia do aluno — Semana 3: AGENTS.md e skills
 
-Este guia acompanha os slides da aula 5 e o lab guiado da aula 6. Quando aparecer
+Este guia acompanha os slides da aula 5 e o red team em duplas da aula 6. Quando aparecer
 **MÃO NA MASSA**, é a sua vez. Terminal aberto do lado o tempo todo.
 
 Travou? Manda o erro no chat, segue em dupla — a solução não pode esperar o fim da
@@ -149,64 +149,76 @@ esperava? Guarde esse primeiro teste — ele volta na aula 6.
 
 ---
 
-## AULA 6 — Lab guiado paralelo (120 min, checkpoint a cada 20 min)
+## AULA 6 — RED TEAM EM DUPLAS (120 min)
 
-A facilitadora escreve a skill dela ao vivo, do zero. Você não copia — você constrói a
-sua em paralelo, no seu projeto, no mesmo ritmo. Cada checkpoint é um ponto de sincronia:
-a aula só avança quando a maioria confirmar.
+Hoje você não constrói: você **quebra**. Nos primeiros 40 minutos você fecha a sua
+própria skill. Depois, as duplas são sorteadas ao vivo e você passa o resto da aula
+tentando fazer a skill **do seu colega** errar.
 
-**Antes de começar:** confira que você fez o Lab 1 e o Lab 2 da aula 5. Sem isso, você
-não tem uma skill pra evoluir hoje.
+**Antes de começar:** você precisa da skill do Lab 2 (aula 5) **invocável**. Não precisa
+estar bonita, nem completa. Precisa rodar quando alguém chama. Sem isso, a pessoa que
+for sorteada com você fica sem o que testar.
 
-### Pareamento (anunciado no início da aula 6)
+### As 3 regras do jogo
 
-A facilitadora sorteia as duplas publicamente, no início da aula. Regra do sorteio:
-sempre que der, você é pareado com alguém de um **domínio diferente** do catálogo — é
-o teste mais difícil pra uma `description`: se a sua skill só faz sentido pra quem já
-conhece o seu projeto, ela está mal escrita.
+1. **Você testa a skill do colega, não a sua.** É muito mais fácil ver o furo na skill
+   de quem não escreveu ela — você não sabe o que ela "deveria" fazer, então só sobra o
+   que está escrito.
+2. **Sessão limpa em cada cenário.** `/clear` antes de cada um. O contexto que sobrou de
+   quando a skill foi escrita esconde exatamente o furo que você está procurando.
+3. **Cola o comando e a saída bruta, não a conclusão.** "Funcionou" não é evidência.
 
-- **Faltou um aluno?** Ele fica marcado num "banco de reposição" e faz a validação
-  cruzada de forma assíncrona, antes do prazo do entregável, com um colega indicado
-  pela facilitadora depois da aula.
-- **Dois alunos faltaram?** Eles se validam mutuamente depois, de forma assíncrona.
-- **Número ímpar de alunos presentes?** Forma-se um trio: A valida a skill de B, B
-  valida a de C, C valida a de A. Ninguém fica sem validar e sem ser validado.
+### Como a aula corre
 
-### Checkpoint 1 — min 20
+| min | o que acontece |
+|---|---|
+| 0–10 | Abertura, as regras do jogo, você confirma que a sua skill invoca |
+| 10–40 | **Fechamento individual** — você termina a sua skill até ela ficar invocável |
+| 40–50 | **Sorteio das duplas ao vivo.** Você senta com quem foi sorteado e troca o caminho do repositório |
+| 50–70 | **Cenários 1 e 2** na skill do colega |
+| 70–90 | **Cenário 3** — o falso positivo, o difícil |
+| 90–105 | **Relatório cruzado** — você preenche o relatório da skill dele e entrega pra ele |
+| 105–115 | **Mural de achados** — alguns leem o achado mais surpreendente |
+| 115–120 | Fechamento: o que falta pro entregável, prazo |
 
-`SKILL.md` com frontmatter válido: `name` e `description` preenchidos,
-`allowed-tools` restrito ao mínimo que a skill precisa (não `*`, não "todas"). Confirme
-no chat com ✅.
+O sorteio é ao vivo de propósito. Se você soubesse com quem ia trocar, escreveria a
+skill pensando na pessoa — e aí o teste não valeria nada.
 
-### Checkpoint 2 — min 40
+### Como trocar as skills
 
-Pelo menos um passo do procedimento decidido e, quando fizer sentido, um `reference.md`
-separado. Se você decidiu que **nada** vai pra reference.md, tem que saber dizer por
-quê — isso também é uma decisão válida, não um requisito automático.
+Copie a pasta `.claude/skills/<nome>/` inteira do colega pro seu projeto — **não** o
+repositório inteiro dele. Você vai rodar a skill dele no **seu** contexto, com o seu
+projeto em volta. Isso é proposital: uma skill que só funciona no repositório de origem
+tem a `description` amarrada em coisa que não está escrita nela.
 
-### Checkpoint 3 — min 60
+### Os três cenários
 
-A skill dispara pelo menos uma vez, com sucesso, numa tarefa real do seu projeto — não
-um teste de brinquedo.
+Template completo em `starter/relatorio-validacao/TEMPLATE.md`. Em resumo:
 
-### Checkpoint 4 — min 80
+**Cenário 1 — dispara quando deve.** Um pedido real, com as palavras que alguém usaria
+de verdade. Não copie a frase de exemplo do `SKILL.md` dele: escreva do seu jeito.
 
-Você rodou pelo menos um ajuste na `description` a partir do que observou no
-checkpoint 3 (ela disparou tarde? cedo demais? não disparou?). Registre o antes/depois
-da description.
+**Cenário 2 — não dispara quando não deve.** Um pedido sem nenhuma relação com o que a
+skill faz. Não disparar aqui é o resultado **certo**, não uma falha.
 
-### Checkpoint 5 — min 100 (o cruzado)
+**Cenário 3 — o falso positivo.** O difícil. Pegue uma frase que usa as **mesmas
+palavras** da `description` dele, mas num domínio completamente diferente. Se ela
+disparar aqui, você achou o furo.
 
-Troque a skill com a sua dupla (copie a pasta `.claude/skills/<nome>/` inteira — não
-o repositório inteiro). Rode, no repositório do colega, **um** dos três cenários do
-`starter/relatorio-validacao/TEMPLATE.md`. Anote o resultado bruto (comando + o que
-aconteceu) — o relatório completo com os três cenários é parte do entregável
-assíncrono, não precisa fechar hoje.
+> **Bônus (não conta nota, conta na vida):** um quarto cenário, do seu próprio jeito de
+> quebrar, que nenhum dos três cobre. Cole no relatório mesmo que não tenha quebrado.
 
-### Fechamento — min 100 a 120
+### Se você chegou sem skill invocável
 
-Recap: o que falta pro entregável (completar os três cenários formalmente, escrever o
-parágrafo pro dono do negócio), prazo, dúvidas.
+Você não fica de fora. Entra num trio como **validador extra** e entrega dois relatórios
+em vez de um. Avise a facilitadora no começo da aula, não no min 40.
+
+### O que você leva pra casa
+
+- O relatório que **você** escreveu sobre a skill do colega.
+- O relatório que **ele** escreveu sobre a sua.
+- E a parte que é só sua: o que você vai mudar na sua skill depois de ler o relatório
+  dele. Isso entra no entregável.
 
 ---
 
@@ -232,7 +244,7 @@ parágrafo pro dono do negócio), prazo, dúvidas.
 | a skill dispara em tarefas que não têm nada a ver | a `description` está genérica demais — reescreva com o padrão "o que faz + quando usar", com termos-chave específicos do seu domínio |
 | a skill nunca dispara sozinha, só com `/nome` | normal se você marcou `disable-model-invocation: true` de propósito; se não marcou, o `description` provavelmente está vago |
 | `allowed-tools` bloqueia a skill toda hora | ela está pedindo mais ferramenta do que você liberou — decida se a ferramenta é mesmo necessária antes de simplesmente liberar tudo |
-| criei `AGENTS.md` mas o Claude Code não usa | ele não lê `AGENTS.md` direto — crie `CLAUDE.md` com `@AGENTS.md` na primeira linha, ou `ln -s AGENTS.md CLAUDE.md` (no Windows sem WSL, use o import, não o symlink — symlink pede administrador) |
+| criei `AGENTS.md` mas o Claude Code não usa | rode `claude --version`: da **2.1.277** (18/09/2026) em diante ele lê `AGENTS.md` quando **não existe** `CLAUDE.md` no projeto. Se você tem os dois, ele lê o `CLAUDE.md` — a ponte é `@AGENTS.md` na primeira linha dele, ou `ln -s AGENTS.md CLAUDE.md` (no Windows sem WSL, use o import: symlink pede administrador). Também dá pra ligar/desligar o comportamento em `/config` |
 | Windows: `ln -s` não funciona | rode o Git Bash ou PowerShell como Administrador, ou simplesmente use o import `@AGENTS.md` em vez do symlink — funciona igual e não pede privilégio nenhum |
 | meu par faltou e não sei quem valida minha skill | fala com a facilitadora depois da aula — você entra no banco de reposição, não fica sem validação |
 | `/context` mostra número diferente do esperado depois do `/clear` | esperado — `/clear` reseta a conversa, mas o `CLAUDE.md` do projeto recarrega sozinho na próxima leitura |
